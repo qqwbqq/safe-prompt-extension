@@ -122,6 +122,10 @@ https://aaaa.aaaaaa.aaaaa/v1
 2. 切到“页面”
 3. 点击“采集当前页面”
 4. 点击“生成提示词”
+<img width="445" height="600" alt="image" src="https://github.com/user-attachments/assets/07493d2e-03b8-4788-b18b-fd318b2b4876" />
+<img width="1912" height="960" alt="image" src="https://github.com/user-attachments/assets/ba588609-8028-439c-bb19-09770712b7b5" />
+<img width="1610" height="795" alt="image" src="https://github.com/user-attachments/assets/6661cab9-6e6c-4910-9add-b8b63795f490" />
+
 
 适合场景：
 
