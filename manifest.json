@@ -1,0 +1,36 @@
+{
+  "manifest_version": 3,
+  "name": "Safe Prompt",
+  "description": "Generate editable prompts from the current page, selected content, images, code, or video.",
+  "version": "1.0.0",
+  "minimum_chrome_version": "114",
+  "permissions": [
+    "activeTab",
+    "contextMenus",
+    "scripting",
+    "storage",
+    "tabs"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "background": {
+    "service_worker": "src/background.js",
+    "type": "module"
+  },
+  "action": {
+    "default_title": "Safe Prompt",
+    "default_popup": "src/popup.html",
+    "default_icon": {
+      "16": "assets/icons/icon16.png",
+      "32": "assets/icons/icon32.png"
+    }
+  },
+  "icons": {
+    "16": "assets/icons/icon16.png",
+    "32": "assets/icons/icon32.png",
+    "48": "assets/icons/icon48.png",
+    "128": "assets/icons/icon128.png"
+  },
+  "options_page": "src/options.html"
+}

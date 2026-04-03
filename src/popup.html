@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Safe Prompt</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body class="popup-shell light-shell">
+    <main class="mini-app">
+      <header class="topbar">
+        <button id="settingsBtn" class="icon-button" type="button" aria-label="设置">&#9881;</button>
+        <div class="brandmark">
+          <span class="brand-icon">S</span>
+          <strong>Safe Prompt</strong>
+        </div>
+      </header>
+
+      <section class="soft-card compact-card">
+        <label class="field">
+          <span>生成类型</span>
+          <select id="promptTarget"></select>
+        </label>
+        <label class="field">
+          <span>补充要求</span>
+          <textarea id="goal" rows="2" placeholder="补充风格、用途、生成要求..."></textarea>
+        </label>
+      </section>
+
+      <section class="soft-card compact-card">
+        <div class="segmented" id="modeSwitcher">
+          <button type="button" data-mode="image" class="active">图片</button>
+          <button type="button" data-mode="page">页面</button>
+          <button type="button" data-mode="code">代码</button>
+          <button type="button" data-mode="video">视频</button>
+        </div>
+
+        <div class="mode-panel active" data-panel="image">
+          <label class="dropzone slim">
+            <input id="imageInput" type="file" accept="image/*" multiple>
+            <span>上传图片</span>
+          </label>
+          <div id="imagePreview" class="preview-grid"></div>
+        </div>
+
+        <div class="mode-panel" data-panel="page">
+          <div class="stack-row">
+            <button id="capturePageBtn" class="primary-button" type="button">采集当前页面</button>
+          </div>
+          <div id="pageShotPreview" class="preview-grid"></div>
+          <pre id="pagePreview" class="preview-text empty">还没有页面信息。</pre>
+        </div>
+
+        <div class="mode-panel" data-panel="code">
+          <label class="field">
+            <span>前端代码</span>
+            <textarea id="codeInput" rows="8" placeholder="粘贴 HTML / CSS / JSX / Vue / Tailwind 代码..."></textarea>
+          </label>
+        </div>
+
+        <div class="mode-panel" data-panel="video">
+          <label class="dropzone slim">
+            <input id="videoInput" type="file" accept="video/*">
+            <span>上传视频</span>
+          </label>
+          <div id="videoMeta" class="meta-strip empty">还没有视频信息。</div>
+          <div id="videoFrames" class="preview-grid"></div>
+        </div>
+      </section>
+
+      <section class="button-row">
+        <button id="generateBtn" class="primary-button fill" type="button">生成提示词</button>
+        <button id="copyBtn" class="secondary-button" type="button">复制</button>
+        <button id="copyJsonBtn" class="secondary-button" type="button">复制 JSON</button>
+      </section>
+
+      <div class="progress-track" aria-hidden="true">
+        <span id="progressFill"></span>
+      </div>
+
+      <section class="soft-card compact-card">
+        <div class="result-head minimal">
+          <h2>结果</h2>
+        </div>
+        <div id="resultSummary" class="summary-card empty">生成结果会显示在这里。</div>
+        <div id="resultTags" class="chip-row"></div>
+        <div id="resultSections" class="result-grid"></div>
+        <div id="resultInsights" class="insight-grid"></div>
+        <div id="resultWarnings" class="warning-list"></div>
+        <p id="status" class="status"></p>
+        <div class="result-bottom">
+          <div class="lang-switch pill-switch" id="languageSwitcher">
+            <button type="button" data-lang="en">EN</button>
+            <button type="button" data-lang="zh" class="active">中</button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script type="module" src="popup.js"></script>
+  </body>
+</html>
